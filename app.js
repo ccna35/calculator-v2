@@ -8,9 +8,10 @@ const resultBox = document.querySelector(".result");
 const inputBox = document.querySelector(".input");
 const historyBox = document.querySelector(".history");
 
-// clear & equal buttons
+// clear, equal & del buttons
 const clearBtn = document.querySelector(".clear");
 const equalBtn = document.querySelector("#equal");
+const delBtn = document.querySelector(".del");
 
 // operand buttons
 const plusBtn = document.querySelector("#plus");
@@ -23,6 +24,7 @@ const multiplyBtn = document.querySelector("#multiply");
 let currentInput;
 let nextInput;
 let currentOperation;
+let result;
 
 numbers.forEach((num) => {
   num.addEventListener("click", () => {
@@ -39,6 +41,7 @@ numbers.forEach((num) => {
 // });
 
 plusBtn.addEventListener("click", () => {
+  if (!historyBox.innerText && !inputBox.innerText) return;
   currentInput = parseInt(inputBox.innerText);
   currentOperation = "+";
   historyBox.innerText = inputBox.innerText + "+";
@@ -47,6 +50,7 @@ plusBtn.addEventListener("click", () => {
 });
 
 minusBtn.addEventListener("click", () => {
+  if (!historyBox.innerText && !inputBox.innerText) return;
   currentInput = parseInt(inputBox.innerText);
   currentOperation = "-";
   historyBox.innerText = inputBox.innerText + "-";
@@ -55,6 +59,7 @@ minusBtn.addEventListener("click", () => {
 });
 
 multiplyBtn.addEventListener("click", () => {
+  if (!historyBox.innerText && !inputBox.innerText) return;
   currentInput = parseInt(inputBox.innerText);
   currentOperation = "*";
   historyBox.innerHTML = inputBox.innerHTML + "&times;";
@@ -63,6 +68,7 @@ multiplyBtn.addEventListener("click", () => {
 });
 
 divideBtn.addEventListener("click", () => {
+  if (!historyBox.innerText && !inputBox.innerText) return;
   currentInput = parseInt(inputBox.innerText);
   currentOperation = "/";
   historyBox.innerHTML = inputBox.innerHTML + "&#247;";
@@ -71,7 +77,8 @@ divideBtn.addEventListener("click", () => {
 });
 
 equalBtn.addEventListener("click", () => {
-  let result;
+  if (!inputBox.innerText) return;
+  if (!historyBox.innerText) return;
   historyBox.innerText += inputBox.innerText;
   nextInput = parseInt(inputBox.innerText);
   switch (currentOperation) {
@@ -99,6 +106,20 @@ equalBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
   inputBox.innerText = "";
   historyBox.innerText = "";
+  result = undefined;
+  console.log(result);
+});
+
+delBtn.addEventListener("click", () => {
+  // inputBox.innerText = inputBox.innerText.split("");
+  // historyBox.innerText = "";
+  if (!inputBox.innerText) return;
+  let text = inputBox.innerText;
+  let newText = text.split("");
+  newText.pop();
+  console.log(newText.join(""));
+  inputBox.innerText = newText.join("");
+  // console.log(inputBox.innerText.split("").pop());
 });
 
 // code for theme options
