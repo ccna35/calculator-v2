@@ -1,0 +1,145 @@
+:root {
+  /* common colors */
+  --clearBtn: #e63946;
+
+  /*  light theme colors */
+  --background: #e9ecef;
+  --btns: #dee2e6;
+  --btnText: #6c757d;
+  --lightHistory: #adb5bd;
+  --lightInput: #ced4da;
+  --boxText: #6c757d;
+  --hover: #adb5bd;
+
+  /* dark theme colors */
+  /* --darkBackground: #191528;
+  --darkBtns: #3c162f;
+  --darkBtnText: #191528;
+  --darkHistory: #5c162e;
+  --darkInput: #3c162f; */
+
+  /* theme 3 colors */
+  /* --background: #7f5539;
+  --btns: #9c6644;
+  --btnText: #ddb892;
+  --lightHistory: #e6ccb2;
+  --lightInput: #ede0d4;
+  --boxText: #9c6644;
+  --hover: #e6ccb2; */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container {
+  width: 20rem;
+  max-width: 100vw;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+.wrapper {
+  background-color: var(--background);
+  min-height: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: grid;
+  gap: 0.25rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.box {
+  outline: none;
+  border: none;
+  background-color: var(--btns);
+  padding: 0.5rem;
+  text-align: center;
+  color: var(--btnText);
+  font-size: 1.5rem;
+  transition: background-color 0.5s;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.box:hover {
+  background-color: var(--hover);
+}
+
+.box:nth-child(1) {
+  height: 2rem;
+  grid-column-start: span 3;
+  padding: 0;
+  padding-left: 1rem;
+  background-color: var(--lightHistory);
+  color: var(--boxText);
+  text-align: left;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.box:nth-child(2) {
+  min-height: 4rem;
+  grid-column-start: span 3;
+  padding: 1rem;
+  background-color: var(--lightInput);
+  color: var(--boxText);
+  text-align: left;
+}
+
+.box:last-child {
+  grid-column-start: span 3;
+}
+
+.operand {
+  /* background-color: #22333b; */
+}
+
+.toggle {
+  background-color: var(--btns);
+  margin-bottom: 1rem;
+  width: 2rem;
+  height: 1rem;
+  border-radius: 999px;
+  display: inline-flex;
+  padding: 2px;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 500ms;
+}
+
+.toggle.active {
+  background-color: var(--btnText);
+}
+
+.ball {
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--btnText);
+  border-radius: 50%;
+  transition: transform 500ms, background-color 500ms;
+}
+
+.ball.active {
+  transform: translateX(1rem);
+  background-color: var(--btns);
+}
+
+#theme {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  border: 1px solid lightgray;
+  outline: none;
+}
