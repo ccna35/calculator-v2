@@ -140,6 +140,20 @@ function turnOnThemeThree() {
   r.style.setProperty("--hover", "#e6ccb2");
 }
 
+const themeOne = {
+  background: {
+    1: "#e9ecef",
+    2: "#191528",
+    3: "#7f5539",
+  },
+  btns: "#7f5539",
+  btnText: "#7f5539",
+  boxText: "#7f5539",
+  lightHistory: "#7f5539",
+  lightInput: "#7f5539",
+  hover: "#7f5539",
+};
+
 const themeDropdown = document.querySelector("#theme");
 
 themeDropdown.addEventListener("change", (event) => {
