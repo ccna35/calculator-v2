@@ -40,6 +40,15 @@ numbers.forEach((num) => {
 //   });
 // });
 
+function operation(typeOfOperation, symbol) {
+  if (!historyBox.innerText && !inputBox.innerText) return;
+  currentInput = parseInt(inputBox.innerText);
+  currentOperation = typeOfOperation;
+  historyBox.innerText = inputBox.innerText + symbol || typeOfOperation;
+  inputBox.innerText = "";
+  console.log(currentInput);
+}
+
 plusBtn.addEventListener("click", () => {
   if (!historyBox.innerText && !inputBox.innerText) return;
   currentInput = parseInt(inputBox.innerText);
@@ -111,15 +120,12 @@ clearBtn.addEventListener("click", () => {
 });
 
 delBtn.addEventListener("click", () => {
-  // inputBox.innerText = inputBox.innerText.split("");
-  // historyBox.innerText = "";
   if (!inputBox.innerText) return;
   let text = inputBox.innerText;
   let newText = text.split("");
   newText.pop();
   console.log(newText.join(""));
   inputBox.innerText = newText.join("");
-  // console.log(inputBox.innerText.split("").pop());
 });
 
 // code for theme options
